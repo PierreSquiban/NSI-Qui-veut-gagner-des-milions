@@ -1,3 +1,15 @@
+# importing everything from tkinter
+from tkinter import *
+ 
+# creating the tkinter window
+Main_window = Tk()
+ 
+# variable
+my_text = "GeeksforGeeks updated !!!"
+ 
+# function define for
+# updating the my_label
+# widget content
 import tkinter
 import tkinter.font
 from tkinter import*
@@ -7,13 +19,13 @@ from PIL import ImageTk, Image
 
 
 app= Tk()
-app.title="Qui veut gagner des milions"
+app.title='Qui veut gagner des milions'
 app["bg"]= "#0059b3"
 app.geometry("10000x10000")
 police_écriture = tkinter.font.Font(family='Lora', size= 20)
 police_écriture2 = tkinter.font.Font(family='Lora', size= 15)
 
-#Partie Algorithme 
+#Partie Algorithme
 
 NSI = str('NSI.csv')
 
@@ -27,7 +39,7 @@ with open('question.csv','r',newline='', encoding='utf-8-sig') as f :
 
 #Partie Interface
 
-n=1
+n=0
 
  
 
@@ -39,6 +51,14 @@ Can.place(x=150, y=0)
 
 bonrep= 5+n*6
 
+def Deux_Fonctions(*funcs):
+    def Deux_Fonctions(*args, **kwargs):
+        for f in funcs:
+            f(*args, **kwargs)
+    return Deux_Fonctions
+
+def changeColor():  
+    Réponse_A['bg'] = 'Red'
 
 def Bonne_réponse():
     Réponse_A.place_forget()
@@ -115,7 +135,7 @@ if REPONSED==noms[bonrep]:
 else:
    pipou3= Mauvaise_réponse
     
-Réponse_A = tkinter.Button(app, text=REPONSEA, bg="#0059b3",fg="white", activebackground="white", activeforeground="#0059b3", width=20, height=3, command=pipou)
+Réponse_A = tkinter.Button(app, text=REPONSEA, bg="#0059b3",fg="white", activebackground="white", activeforeground="#0059b3", width=20, height=3, command=Deux_Fonctions(pipou, changeColor))
 Réponse_B = tkinter.Button(app, text=REPONSEB, bg="#0059b3",fg="white", activebackground="white", activeforeground="#0059b3", width=20, height=3, command=pipou1)
 Réponse_C = tkinter.Button(app, text=REPONSEC, bg="#0059b3",fg="white", activebackground="white", activeforeground="#0059b3", width=20, height=3, command=pipou2)
 Réponse_D = tkinter.Button(app, text=REPONSED, bg="#0059b3",fg="white", activebackground="white", activeforeground="#0059b3", width=20, height=3, command=pipou3)
@@ -171,6 +191,10 @@ print(noms[bonrep])
 
 
 app.mainloop()
+
+
+
+
 
 
 
